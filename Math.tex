@@ -39,3 +39,12 @@ $M \in \mathbb{R}^{n\times n}$ is psd $\Leftrightarrow$\\
 $\forall x \in \mathbb{R}^n: x^TMx \geq 0 \Leftrightarrow$\\
 all eigenvalues of $M$ are positive: $\lambda_i\geq 0$
 
+\subsection*{Maximum Likelihood Estimation (MLE)}
+$P(D)$: data dist., $P(D|\theta)$: likelihood\\
+$\theta_{MLE}=\underset{\theta}{\argmax}\ P(D|\theta)$
+
+\subsection*{Maximum a priori estimation (MAP)}
+$P(\theta)$: prior dist., $P(\theta|D)$: posterior dist.\\
+$\theta_{MAP}=\underset{\theta}{\operatorname{amax}}\ P(\theta|D)=\underset{\theta}{\operatorname{amax}}\ \frac{P(D|\theta)P(\theta)}{P(D)}$\\
+$=\underset{\theta}{\operatorname{amax}}\ P(D|\theta)P(\theta)$ (then use $\log$)\\
+1. Assume prior $P(\theta)$ 2. Calculate cond. dist $P(D|\theta)$ 3. $P(D, \theta) = P(D|\theta)P(\theta)$

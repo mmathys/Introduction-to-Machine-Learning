@@ -11,18 +11,20 @@ $P(x) = \sum_y P(x,y)$
 %cond. ind.:$P(X_1,...,X_d|Y) = \prod_{i=1}^d P(X_i|Y)$
 
 \subsection*{Examples}
-MLE for $P(y) = p = \frac{n_+}{n}$\\
-MLE for $P(x_i|y) = \mathcal{N}(x_i;\mu_{i,y}, \sigma_{i,y}^2)$:\\
+MLE for $P(y)$: $\hat{P}(y) = \hat{p}_y = \frac{n_y}{n}$ ($= \frac{n_+}{n}$ for bin.)\\
+MLE for $P(x_i|y)$:
+$\hat{P}(x_i|y)=\mathcal{N}(x_i;\mu_{i,y}, \sigma_{i,y}^2)$\\
 $\hat{\mu}_{i,y} = \frac{1}{n_y} \sum_{x\in D_{x_i|y}} x$\\
-$\hat{\sigma}_{i,y}^2 = \frac{1}{n_y} \sum_{x\in D_{x_i|y}} (x-\hat{\mu}_{i,y})^2$\\
+$\hat{\sigma}_{i,y}^2 = \frac{1}{n_y} \sum_{x\in D_{x_i|y}}
+(x-\hat{\mu}_{i,y})^2$\\
 MLE for Poi.: $\lambda = \operatorname{avg}(x_i) $\\
 $\mathbb{R}^d$: $P(X = x|Y = y) = \prod_{i=1}^dPois(\lambda_y^{(i)},x^{(i)})$
 
 
 \subsection*{Deriving decision rule}
 %In order to predict label y for new point x, use\\
-$P(y|x) = \frac{1}{Z} P(y)P(x|y)$, $Z = \sum_y P(y) P(x|y)$\\
-$y^* = \underset{y}{\operatorname{amax}} ~ P(y|x) = 
+$P(y|x) = \frac{1}{Z} P(y)P(x|y)$, $Z = \sum_y P(y) P(x|y)$,\\ $P(x|y)=\prod^d_{i=1}P(x_i|y)$ (if naive ass.)\\
+$\star y^* = \underset{y}{\operatorname{amax}} ~ P(y|x) = 
 \underset{y}{\operatorname{amax}} ~ P(y) \prod_{i=1}^d P(x_i|y)$
 
 \subsection*{Gaussian Bayes Classifier}
@@ -47,6 +49,8 @@ $P(x) \leq \tau$
 
 \subsection*{Categorical Naive Bayes Classifier}
 MLE for feature distr.:
-$\hat{P}(X_i = c|Y = y) = \theta_{c|y}^{(i)}\\
-\theta_{c|y}^{(i)} = \frac{Count(X_i = c, Y = y)}{Count(Y=y)}$\\
-Prediction: $y^* = \underset{y}{argmax}\hat{P}(y|x)$
+$\hat{P}(X_i = c|Y = y) = \theta_{c|y}^{(i)}$\\
+$\sum_{c} \theta_{c|y}^{(i)} = 1$\\
+$\theta_{c|y}^{(i)} = \frac{Count(X_i = c, Y = y)}{Count(Y=y)}$\\
+Prediction: $y^* = \underset{y}{\operatorname{argmax}}\ \hat{P}(y|x)$\\
+$=\underset{y}{\operatorname{argmax}}\ P(y) \prod_{i=1}^d P(x_i | y)$

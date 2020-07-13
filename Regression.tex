@@ -6,14 +6,17 @@ Solve $w^* = \underset{w}{\operatorname{argmin}} ~ \hat{R}(w)+ \lambda C(w)$
 
 $\hat{R}(w) = \sum_{i=1}^n (y_i - w^Tx_i)^2 = ||Xw-y||^2_2\\
 \nabla_w \hat{R}(w) = -2 \sum_{i=1}^n (y_i-w^T x_i) \cdot x_i \\
-w^* = (X^T X)^{-1} X^T y$
-
+w^* = (X^T X)^{-1} X^T y$\\
+Basis fn: $f(x)=\sum_{i=1}^dw_i\phi_i(x)$, $\phi\in\mathbb{R}^d$\\
+ex. $\phi(x) = [1,x,x^2,...,x^k]$
 
 \subsection*{Ridge regression}
 
 $\hat{R}(w) = \sum_{i=1}^n (y_i - w^Tx_i)^2 + \lambda ||w||_2^2$\\
 $\nabla_w \hat{R}(w) = -2 \sum_{i=1}^n (y_i-w^T x_i) \cdot x_i + 2 \lambda w$\\
-$w^*=(X^T X + \lambda I)^{-1} X^T y$
+$w^*=(X^T X + \lambda I)^{-1} X^T y$\\
+Center points: $\Tilde{x}_{i,j} = (x_{i,j} - \hat{\mu}_j)/\hat{\sigma}_j$\\
+$\hat{\mu}_j = \frac{1}{n}\sum_{i=1}^nx_{i,j}$, $\hat{\sigma}^2_j=\frac{1}{n}\sum_{i=1}^n(x_{i,j}-\hat{\mu}_j)^2$
 
 \subsection*{L1-regularized regression (Lasso)}
 $\hat{R}(w) = \sum_{i=1}^n (y_i - w^Tx_i)^2 + \lambda ||w||_1$
