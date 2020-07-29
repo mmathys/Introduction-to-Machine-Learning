@@ -2,7 +2,7 @@
 
 \subsection*{Properties of kernel}
 $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$, $k$ must be some inner product (symmetric, positive-definite, linear) for some space $\mathcal{V}$.
-i.e. $k(\mathbf{x}, \mathbf{x'}) = \langle \varphi(\mathbf{x}), \varphi(\mathbf{x'}) \rangle_\mathcal{V}$\\
+i.e. $k(\mathbf{x}, \mathbf{x'}) = \langle \varphi(\mathbf{x}), \varphi(\mathbf{x'}) \rangle_\mathcal{V} = \varphi(x)^T\varphi(x')$\\
 $\Rightarrow k$ is symmetric and p.s.d. 
 
 \subsection*{Kernel matrix}
@@ -22,7 +22,7 @@ Laplacian: $k(x,y) = exp(-||x-y||_1/h)$
 
 \subsection*{Composition rules}
 Valid kernels $k_1, k_2$, also valid kernels:
-$k_1(x,y) + k_2(x,y)$; $k_1(x,y) \cdot k_2(x,y)$; $c \cdot k_1(x,y)$, $c>0$;
+$k_1(x,y) + k_2(x,y)$; $k_1(x,y) \cdot k_2(x,y)$; $c \cdot k_1(x,y)$, $c>0$; $f(k_1(x, y))$ where f is poly. with positive coefficients or an exponential, $f(x)k(x, y)f(y)$.
 
 \subsection*{Reformulating the perceptron}
 

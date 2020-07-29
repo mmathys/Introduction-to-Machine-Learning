@@ -12,11 +12,16 @@ E.g. lin. + Gauss: $y_i = w^T x_i + \varepsilon_i, \varepsilon_i \sim \mathcal{N
 i.e. $y_i \sim \mathcal{N}(w^T x_i, \sigma^2)$, With MLE (use\\ $\operatorname{argmin} ~ - \operatorname{log}$): $w^* = \underset{w}{\operatorname{argmin}} \sum (y_i-w^Tx_i)^2$
 
 \subsection*{Bias/Variance/Noise}
-Prediction error = $Bias^2 + Variance + Noise$
+Prediction error = $Bias^2 + Variance + Noise$\\
+Bias$^2$: $\mathbb{E}\left[\mathbb{E}_d\hat{h}_d(x)-h^*(x)\right]^2$\\ Variance: $\mathbb{E}_X\mathbb{E}_D\left[(\hat{h}_d(x) - \mathbb{E}_{D'}\hat{h}_{D'}(X))^2\right]$\\
+Noise: $\mathbb{E}_{X, Y}\left[Y-h^*(X)\right]^2$
 
 \subsection*{Maximum a posteriori estimate (MAP)}
 Assume bias on parameters, e.g. $w_i \in \mathcal{N}(0, \beta^2)$\\
-Bay.: $P(w|x,y) = \frac{P(w|x) P(y|x,w)}{P(y|x)} = \frac{P(w) P(y|x,w)}{P(y|x)}$
+Bay.: $P(w|x,y) = \frac{P(w|x) P(y|x,w)}{P(y|x)} = \frac{P(w) P(y|x,w)}{P(y|x)}$\\
+Ridge regularizer $C(w)=-\log P(w)$\\
+Loss $l(w^Tx_i;x_i,y_i)=-\log P(y_i|x_i,w)$\\
+$w^* = \underset{w}{\argmax} \left(\prod P(y_i|x_i,w)\right)P(w)$
 
 \subsection*{Logistic regression}
 Link func.: $\sigma(w^Tx) = \frac{1}{1+exp(-w^Tx)}$ (Sigmoid)\\

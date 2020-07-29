@@ -6,15 +6,15 @@ $P(D|\theta) = \prod_{i=1}^n \sum_{j=1}^k w_j P(x_i|\theta_j)$\\
 $L(w, \theta) = - \sum_{i=1}^n \operatorname{log}  \sum_{j=1}^k w_j P(x_i| \theta_j)$
 
 \subsection*{Gaussian-Mixture Bayes classifiers}
-Estimate prior $P(y)$; Est. cond. distr. for each class:
-$P(x|y) = \sum_{j=1}^{k_y} w_j^{(y)} \mathcal{N}(x; \mu_j^{(y)}, \Sigma_j^{(y)})$\\
+Estimate prior $P(y)$; Est. distr. for each class:
+$P(x|y) = P(x|\mu,\Sigma,w) = \sum_{j=1}^{k_y} w_j^{(y)} \mathcal{N}(x; \mu_j^{(y)}, \Sigma_j^{(y)})$\\
 
 \subsection*{Hard-EM algorithm}
-Initialize parameters $\theta^{(0)}$\\
+Initialize parameters $\theta^{(0)} = [w_0, \mu_0, \Sigma_0]$\\
 E-step: Predict most likely class for each point:
 $z_i^{(t)} = \underset{z}{\operatorname{argmax}} ~ P(z|x_i, \theta^{(t-1)})\\
 = \underset{z}{\operatorname{argmax}} ~ P(z|\theta^{(t-1)}) P(x_i|z,\theta^{(t-1)})$;\\
-M-step: Compute the MLE: $\theta^{(t)} = \underset{\theta}{\operatorname{argmax}} P(D^{(t)}|\theta)$, i.e. $\mu_j^{(t)} = \frac{1}{n_j} \sum_{i: z_i = j x_j}$
+M-step: Compute the MLE: $\theta^{(t)} = \underset{\theta}{\operatorname{argmax}} P(D^{(t)}|\theta)$, i.e. $\mu_j^{(t)} = \frac{1}{n_j} \sum_{i: z_i = j}x_j$
 
 \subsection*{Soft-EM algorithm}
 E-step: Calc p for each point and cls.: $\gamma_j^{(t)}(x_i)$\\
